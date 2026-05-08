@@ -6,10 +6,11 @@ import PageObjectModel.ForgetPassword;
 import PageObjectModel.OrangeDashboardPage;
 import PageObjectModel.OrangeLoginPage;
 import driverSetter.driverSet;
-import io.qameta.allure.internal.shadowed.jackson.annotation.JsonTypeInfo;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -17,14 +18,20 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class OrangeLogin {
+public class orangeLogin {
     private WebDriver driver;
     private OrangeLoginPage loginpage;
+
     private OrangeDashboardPage dashboardPage;
     private ForgetPassword forgetPassword;
 
+    public orangeLogin(WebDriver driver) {
+        driver=this.driver;
+    }
+
+
     @BeforeEach
-    private void driverSetup(){
+    public void driverSetup(){
         driver=new driverSet().getDriver();
         loginpage=new OrangeLoginPage(driver);
         dashboardPage = new OrangeDashboardPage(driver);
@@ -32,7 +39,7 @@ public class OrangeLogin {
 
     }
     @AfterEach
-    private void driverTear(){
+    public void driverTear(){
         driver.quit();
     }
     @Test
