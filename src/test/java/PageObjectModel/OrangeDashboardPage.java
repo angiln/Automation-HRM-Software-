@@ -16,6 +16,11 @@ public class OrangeDashboardPage {
     private By quickLaunchMenu=By.xpath("//div[contains(@class,'orangehrm-quick-launch-card')]");
     private By buzzLatestPost=By.xpath("//div[contains(@class,'orangehrm-buzz-widget')]");
     private By buzzPostUser=By.xpath("//div[contains(@class,'orangehrm-buzz-widget-header-text')]");
+    private By employeesOnLeaveSettingIcon= By.xpath("//i[contains(@class,'orangehrm-leave-card-icon')]");
+    private By employeesOnLeavePromptText=By.xpath("//p[text()='Configurations']");
+    private By employeesPromptCloseIcon=By.xpath("//button[contains(@class,'oxd-dialog-close-button-position')]");
+    private By firstPieChartElements=By.xpath(".");
+
     public  OrangeDashboardPage(WebDriver driver){
         this.driver=driver;
     }
@@ -47,5 +52,18 @@ public class OrangeDashboardPage {
     public void clickOnBuzzPostUser(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.findElement(buzzPostUser).click();
+    }
+    public void clickOnEmployeesOnLeaveSetting(){
+        driver.findElement(employeesOnLeaveSettingIcon).click();
+
+    }
+    public String getEmployeesOnLeavePromptText(){
+        return driver.findElement(employeesOnLeavePromptText).getText();
+    }
+    public void employeesOnLeavePromptCloser(){
+        driver.findElement(employeesPromptCloseIcon).click();
+    }
+    public By getFirstPieChartElements(){
+        return firstPieChartElements;
     }
 }

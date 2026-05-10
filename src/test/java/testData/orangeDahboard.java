@@ -10,8 +10,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.SQLOutput;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -114,5 +117,30 @@ public class orangeDahboard {
         dashboardPage.clickOnBuzzPostUser();
         Assertions.assertEquals("Buzz",buzzPage.getBuzzNewsfeedHeadingText());
 
+    }
+    @Test
+    public void clickOnEmployeesOnLeaveTodaySetting(){
+             dashboardPage.clickOnEmployeesOnLeaveSetting();
+             Assertions.assertEquals("",dashboardPage.getEmployeesOnLeavePromptText());
+             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+             dashboardPage.employeesOnLeavePromptCloser();
+
+    }
+    @Test
+    public void hoverEmployeeDistribution(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,900)");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+          List<WebElement> element1=driver.findElements(dashboardPage.getFirstPieChartElements());
+          wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+          for(int i=0;i< element1.size();i++){
+              element1.get(i).click();
+
+
+              System.out.println(element1.get(i).getText());
+             String style= element1.get(i).getAttribute("text-decoration");
+              System.out.println(style);
+             Assertions.assertEquals("line-through",style);
+          }
     }
 }
