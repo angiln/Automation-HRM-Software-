@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.SQLOutput;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -142,5 +143,30 @@ public class orangeDahboard {
               System.out.println(style);
              Assertions.assertEquals("line-through",style);
           }
+    }
+    @Test
+    public void upgradeButtonWorks() throws InterruptedException {
+        dashboardPage.clickOnUpgradeButton();
+        Thread.sleep(5000);
+        ArrayList<String> tabs=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+//        driver.switchTo().window(driver.getWindowHandles().iterator().next());euta matra
+//        iterator vayo vane parent tab ma nai janxa so switch garnai lai arraylist mai rakhda better.
+        Assertions.assertEquals("https://orangehrm.com/open-source/upgrade-to-advanced",driver.getCurrentUrl());
+    }
+    @Test
+    public void userIconWorks(){
+        dashboardPage.clickOnUserIcon();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        String styleUserDropdown=driver.findElement(dashboardPage.getUserIcon()).getAttribute("class");
+        Assertions.assertEquals("--active oxd-userdropdown",styleUserDropdown);
+    }
+    @Test
+    public void helpButtonWorks(){
+        dashboardPage.clickOnHelpIcon();
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        ArrayList<String> tabs=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        Assertions.assertEquals("https://starterhelp.orangehrm.com/hc/en-us",driver.getCurrentUrl());
     }
 }

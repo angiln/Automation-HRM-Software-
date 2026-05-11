@@ -21,6 +21,9 @@ public class OrangeDashboardPage {
     private By employeesPromptCloseIcon=By.xpath("//button[contains(@class,'oxd-dialog-close-button-position')]");
     private By firstPieChartElements=By.xpath(".");
 
+    private By upgradeButtonElement=By.xpath("//button[contains(@class,'orangehrm-upgrade-button')]");
+    private By userIcon=By.xpath("//li[contains(@class,'oxd-userdropdown')]");
+    private By helpIcon=By.xpath("//button[contains(@title,'Help')]");
     public  OrangeDashboardPage(WebDriver driver){
         this.driver=driver;
     }
@@ -66,4 +69,17 @@ public class OrangeDashboardPage {
     public By getFirstPieChartElements(){
         return firstPieChartElements;
     }
+    public void clickOnUpgradeButton(){
+        driver.findElement(upgradeButtonElement).click();
+    }
+    public By getUserIcon(){
+        return userIcon;
+    }
+    public void clickOnUserIcon(){
+        driver.findElement(userIcon).click();
+    }
+    public void clickOnHelpIcon(){
+        driver.findElement(helpIcon).click();
+    }
+
 }
