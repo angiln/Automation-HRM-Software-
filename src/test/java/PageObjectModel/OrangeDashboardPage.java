@@ -24,6 +24,7 @@ public class OrangeDashboardPage {
     private By upgradeButtonElement=By.xpath("//button[contains(@class,'orangehrm-upgrade-button')]");
     private By userIcon=By.xpath("//li[contains(@class,'oxd-userdropdown')]");
     private By helpIcon=By.xpath("//button[contains(@title,'Help')]");
+    private By footerLink=By.xpath("//a[@href='http://orangehrm.com']");
     public  OrangeDashboardPage(WebDriver driver){
         this.driver=driver;
     }
@@ -80,6 +81,9 @@ public class OrangeDashboardPage {
     }
     public void clickOnHelpIcon(){
         driver.findElement(helpIcon).click();
+    }
+    public void clickOnFooterOHRMlink(){
+        driver.findElement(footerLink).click();
     }
 
 }

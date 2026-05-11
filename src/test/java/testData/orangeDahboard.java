@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class orangeDahboard {
+public class orangeDashboard {
     private WebDriver driver;
     private OrangeLoginPage loginPage;
     private OrangeDashboardPage dashboardPage;
@@ -168,5 +168,10 @@ public class orangeDahboard {
         ArrayList<String> tabs=new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         Assertions.assertEquals("https://starterhelp.orangehrm.com/hc/en-us",driver.getCurrentUrl());
+    }
+    @Test
+    public void clickOnFooterOHRMlink(){
+        dashboardPage.clickOnFooterOHRMlink();
+        Assertions.assertEquals("",);
     }
 }
