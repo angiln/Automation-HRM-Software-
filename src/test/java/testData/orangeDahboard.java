@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class orangeDashboard {
+public class orangeDahboard {
     private WebDriver driver;
     private OrangeLoginPage loginPage;
     private OrangeDashboardPage dashboardPage;
@@ -171,7 +171,13 @@ public class orangeDashboard {
     }
     @Test
     public void clickOnFooterOHRMlink(){
+        JavascriptExecutor jsexecute=(JavascriptExecutor)driver;
+
+        jsexecute.executeScript("window.scrollBy(0,800)");
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
         dashboardPage.clickOnFooterOHRMlink();
-        Assertions.assertEquals("",);
+        ArrayList<String> tabs=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        Assertions.assertEquals("https://orangehrm.com/",driver.getCurrentUrl());
     }
 }
