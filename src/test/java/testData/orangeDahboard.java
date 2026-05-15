@@ -186,4 +186,11 @@ public class orangeDahboard {
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
         Assertions.assertEquals("oxd-icon bi-chevron-right",driver.findElement(dashboardPage.getSideBarArrowRight()).getAttribute("class"));
     }
+    @Test
+    public void clickOnOrangeHrmLogo(){
+        dashboardPage.clickOrangehrmLogo();
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        Assertions.assertEquals("https://orangehrm.com/",driver.getCurrentUrl());
+
+    }
 }

@@ -27,6 +27,7 @@ public class OrangeDashboardPage {
     private By footerLink=By.xpath("//a[normalize-space()='OrangeHRM, Inc']");
     private By sidebarArrow=By.xpath("//i[@class='oxd-icon bi-chevron-left']");
     private By sidebarArrowRight=By.xpath("//i[@class='oxd-icon bi-chevron-right']");
+    private By orangehrmLogo=By.xpath("//img[contains(@alt,'client brand banner')]");
     public  OrangeDashboardPage(WebDriver driver){
         this.driver=driver;
     }
@@ -93,6 +94,11 @@ public class OrangeDashboardPage {
     public By getSideBarArrowRight(){
         return sidebarArrowRight;
     }
-
+    public By getOrangehrmLogo(){
+        return orangehrmLogo;
+    }
+    public void clickOrangehrmLogo(){
+        driver.findElement(orangehrmLogo).click();
+    }
 
 }
