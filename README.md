@@ -43,27 +43,33 @@
 ---
 
 ## 📁 Project Structure
+
+```
 src/
 └── test/
-└── java/
-├── driverSetter/        # WebDriver setup & ChromeOptions config
-├── PageObjectModel/     # POM classes for each module
-└── testData/            # JUnit 5 test classes
+    └── java/
+        ├── driverSetter/        # WebDriver setup & ChromeOptions config
+        ├── PageObjectModel/     # POM classes for each module
+        └── testData/            # JUnit 5 test classes
+```
 
 ---
 
 ## 🗓️ Development Timeline
+
+```
 May 16, 2026  ──●  Allure reporting integrated | 27 test cases | 92.59% pass rate
-──●  orangeLogin.java — 12 login test cases completed
-──●  orangeDahboard.java — 15 dashboard test cases
-──●  Search bar automation with dynamic XPath
-──●  Quick launch menu navigation tests
-──●  Multi-tab handling (Upgrade, Help, Footer links)
-──●  Sidebar collapse/expand tests
-──●  Buzz newsfeed scroll & redirect tests
-──●  Page Object Model structure established
-──●  ChromeOptions configured (language, locale)
-──●  Project initialized — HRM login automation
+              ──●  orangeLogin.java — 12 login test cases completed
+              ──●  orangeDahboard.java — 15 dashboard test cases
+              ──●  Search bar automation with dynamic XPath
+              ──●  Quick launch menu navigation tests
+              ──●  Multi-tab handling (Upgrade, Help, Footer links)
+              ──●  Sidebar collapse/expand tests
+              ──●  Buzz newsfeed scroll & redirect tests
+              ──●  Page Object Model structure established
+              ──●  ChromeOptions configured (language, locale)
+              ──●  Project initialized — HRM login automation
+```
 
 ---
 
