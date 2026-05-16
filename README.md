@@ -1,6 +1,6 @@
 # ⚡ OrangeHRM · Test Automation Suite
 
-> `status: active` &nbsp;|&nbsp; ![Last Commit](https://img.shields.io/github/last-commit/angiln/Automation-HRM-Software-?style=flat&label=last%20updated) &nbsp;|&nbsp; `commits: daily`
+> `status: active` &nbsp;|&nbsp; ![Last Commit](https://img.shields.io/github/last-commit/angiln/Automation-HRM-Software-?style=flat&label=last%20updated&color=blue) &nbsp;|&nbsp; `commits: daily`
 
 ---
 
