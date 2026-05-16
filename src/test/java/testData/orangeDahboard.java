@@ -6,9 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -192,5 +190,35 @@ public class orangeDahboard {
         WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
         Assertions.assertEquals("https://orangehrm.com/",driver.getCurrentUrl());
 
+    }
+    @Test
+    public void searchThrough() {
+        List <String> searchItem=Arrays.asList("Admin","PIM","Leave","Time","Recruitment","My Info","Performance",
+                "Dashboard","Directory","Maintenance","Claim","Buzz");
+//        System.out.println("SearchItem size is "+searchItem.size());
+//        for(int i=0;i<searchItem.size();i++){
+//            System.out.println("The "+i+" item is "+searchItem.get(i));
+//        }
+        for(int i=0;i<searchItem.size();i++){
+        dashboardPage.setSearchDashboard(searchItem.get(i));
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        Assertions.assertEquals(searchItem.get(i),dashboardPage.getSearchedItem(searchItem.get(i)));
+            dashboardPage.searchBarClear();
+        }
+
+    }
+    @Test
+    public void goToAllMenuItems(){
+     List<String> elementa=Arrays.asList("Admin","PIM","Leave","Time","Recruitment","My Info","Performance",
+             "Dashboard","Directory","Maintenance","Claim","Buzz");
+     for(int i =0;i<elementa.size();i++){
+         List <WebElement> menus=driver.findElements(dashboardPage.getMenuItems());
+         if(menus.get(i).getText().equals("Maintenance")){
+            driver.findElement(By.xpath("//button[contains(@class,'oxd-button--ghost')]")).click();
+         }else {
+             menus.get(i).click();
+
+         }
+     }
     }
 }

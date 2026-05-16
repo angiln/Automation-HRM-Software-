@@ -1,6 +1,7 @@
 package PageObjectModel;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,6 +29,10 @@ public class OrangeDashboardPage {
     private By sidebarArrow=By.xpath("//i[@class='oxd-icon bi-chevron-left']");
     private By sidebarArrowRight=By.xpath("//i[@class='oxd-icon bi-chevron-right']");
     private By orangehrmLogo=By.xpath("//img[contains(@alt,'client brand banner')]");
+    private By orangeSearch=By.xpath("//input[contains(@placeholder,'Search')]");
+
+    private String menuList = "//span[contains(@class,'oxd-main-menu-item--name')";
+    private By menuItems=By.xpath("//li[contains(@class,'oxd-main-menu-item-wrapper')]");
     public  OrangeDashboardPage(WebDriver driver){
         this.driver=driver;
     }
@@ -99,6 +104,22 @@ public class OrangeDashboardPage {
     }
     public void clickOrangehrmLogo(){
         driver.findElement(orangehrmLogo).click();
+    }
+    public void searchBarClear(){
+        WebElement search=driver.findElement(orangeSearch);
+        search.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+        search.sendKeys(Keys.BACK_SPACE);
+    }
+    public void setSearchDashboard(String searchItem){
+
+        driver.findElement(orangeSearch).sendKeys(searchItem);
+    }
+    public String getSearchedItem(String getItem){
+
+        return driver.findElement(By.xpath(menuList+" and text()='"+getItem+"']")).getText();
+    }
+    public By getMenuItems(){
+        return menuItems;
     }
 
 }
