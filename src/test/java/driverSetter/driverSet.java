@@ -13,7 +13,7 @@ public class driverSet {
 
 
     public WebDriver getDriver(){
-        driver=new ChromeDriver(options);
+        driver=new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         driver.manage().window().maximize();
         options.addArguments("--lang=en-US");

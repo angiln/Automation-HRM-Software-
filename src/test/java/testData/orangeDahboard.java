@@ -21,7 +21,7 @@ public class orangeDahboard {
     private WebDriver driver;
     private OrangeLoginPage loginPage;
     private OrangeDashboardPage dashboardPage;
-    private orangeLogin logintest;
+
     private OrangeTimePage timePage;
     private OrangePerformancePage performancePage;
     private OrangeRecruitmentPage recruitmentPage;
@@ -33,7 +33,7 @@ public class orangeDahboard {
     public void setDriver(){
         driver=new driverSet().getDriver();
 
-        logintest=new orangeLogin(driver);
+
         dashboardPage =new OrangeDashboardPage(driver);
         timePage=new OrangeTimePage(driver);
         loginPage=new OrangeLoginPage(driver);

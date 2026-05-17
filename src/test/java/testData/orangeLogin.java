@@ -25,9 +25,7 @@ public class orangeLogin {
     private OrangeDashboardPage dashboardPage;
     private ForgetPassword forgetPassword;
 
-    public orangeLogin(WebDriver driver) {
-        driver=this.driver;
-    }
+
 
 
     @BeforeEach
