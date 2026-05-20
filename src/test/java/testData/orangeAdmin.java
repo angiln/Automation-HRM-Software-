@@ -85,7 +85,7 @@ public class orangeAdmin {
                         }
                     }
                 }
-
+                  adminPage.searchAdminClicker();
 
            }else{
                System.out.println("It's not user management");

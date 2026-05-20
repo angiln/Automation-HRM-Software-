@@ -17,6 +17,7 @@ public class OrangeAdminPage {
     private By employeeNameElement=By.xpath("//input[contains(@placeholder,'Type for hints')]");
     private By status=By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[4]/div/div[2]/div/div/div[1]");
     private By statusOptions=By.xpath("//div[@role='option']");
+   private By searchButtonAdmin=By.xpath("//button[contains(@class,'orangehrm-left-space')]");
 
 
     public OrangeAdminPage(WebDriver driver){
@@ -52,5 +53,7 @@ public class OrangeAdminPage {
         return driver.findElements(statusOptions);
     }
 
-
+    public void searchAdminClicker(){
+        driver.findElement(searchButtonAdmin).click();
+    }
 }
